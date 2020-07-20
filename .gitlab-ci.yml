@@ -1,0 +1,16 @@
+stages:
+  - test
+
+test:
+  stage: test
+  services:
+    - selenium/standalone-chrome
+
+
+  script:
+    - mvn test -Dtest=LoginTest
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - target/relatorio/execucao.html
